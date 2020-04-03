@@ -1,0 +1,41 @@
+tensorstore.TensorStore
+=======================
+
+.. currentmodule:: tensorstore
+
+.. autoclass:: TensorStore
+
+   
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :toctree: .
+   
+      ~TensorStore.__init__
+      ~TensorStore.astype
+      ~TensorStore.read
+      ~TensorStore.resolve
+      ~TensorStore.spec
+      ~TensorStore.write
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      :toctree: .
+   
+      ~TensorStore.domain
+      ~TensorStore.dtype
+      ~TensorStore.mode
+      ~TensorStore.oindex
+      ~TensorStore.rank
+      ~TensorStore.readable
+      ~TensorStore.vindex
+      ~TensorStore.writable
+   
+   

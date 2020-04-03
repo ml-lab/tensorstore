@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Index space &mdash; TensorStore  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_rtd_theme_table_word_wrap_fix.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Context framework" href="context.html" />
+    <link rel="prev" title="Building and Installing" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> TensorStore
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Building and Installing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Index space</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#index-domain">Index domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#index-transform">Index transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="context.html">Context framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">TensorStore JSON Spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tensorstore/driver/index.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tensorstore/kvstore/index.html">Key-Value Storage Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/index.html">Python API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TensorStore</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Index space</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index_space.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="index-space">
+<h1>Index space<a class="headerlink" href="#index-space" title="Permalink to this headline">¶</a></h1>
+<p>TensorStore defines an <em>index space</em> as an <span class="math notranslate nohighlight">\(n\)</span>-dimensional
+space, where <span class="math notranslate nohighlight">\(n\)</span> is the <em>rank</em> of the space and each
+index is an integer in the closed interval <span class="math notranslate nohighlight">\([-(2^{62}-2),
++(2^{62}-2)]\)</span>.  The special values <span class="math notranslate nohighlight">\(\pm (2^{62}-1)\)</span> are not valid
+indices but represent bounds of <span class="math notranslate nohighlight">\(\pm \infty\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The limits of <span class="math notranslate nohighlight">\(\pm (2^{62}-2)\)</span> permit <span class="math notranslate nohighlight">\(\pm (2^{62}-1)\)</span> to be
+reserved to represent <span class="math notranslate nohighlight">\(\pm \infty\)</span> and still allow the
+difference between any two bounds to be represented as a signed
+64-bit integer.</p>
+</div>
+<p id="dimension-labels">Each of the <span class="math notranslate nohighlight">\(n\)</span> dimensions may optionally be identified by a unique
+string <em>label</em>, such as <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;y&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;z&quot;</span></code>.  Unlabeled
+dimensions are indicated by an empty string as the label.</p>
+<div class="section" id="index-domain">
+<span id="implicit-bounds"></span><span id="id1"></span><h2>Index domain<a class="headerlink" href="#index-domain" title="Permalink to this headline">¶</a></h2>
+<p>An <em>index domain</em> is a rectangular region of an index space.</p>
+<ul class="simple">
+<li><p>The inclusive lower bound of each dimensions is specified as an
+integer in <span class="math notranslate nohighlight">\([-(2^{62}-1), 2^{62}-2]\)</span>, where the special value of
+<span class="math notranslate nohighlight">\(-2^{62}-1\)</span> indicates the dimension is unbounded below.</p></li>
+<li><p>The inclusive upper bound of each dimension is specified as an
+integer in <span class="math notranslate nohighlight">\([-(2^{62}-2), 2^{62}-1]\)</span>, where the special value of
+<span class="math notranslate nohighlight">\(2^{62}-1\)</span> indicates the dimension is unbounded above.</p></li>
+<li><p>The lower and upper bound of each dimension is marked either
+<em>explicit</em> or <em>implicit</em> (represented as two additional bits per
+dimension).  Explicit bounds indicate hard constraints on the valid
+indices for that dimension.  Implicit bounds may be used for
+resizable dimensions of arrays: the implicit bound indicates the
+bound as of a certain time, but the bound may change if a resizable
+operation is performed, and indexing operations are not constrained
+by implicit bounds.  Implicit bounds of <span class="math notranslate nohighlight">\(\pm \infty\)</span> are also
+used to indicate unknown or unspecified bounds.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Specifying infinite bounds <span class="math notranslate nohighlight">\((-\infty, +\infty)\)</span> for a
+dimension is similar to specifying the finite bounds
+<span class="math notranslate nohighlight">\([-(2^{62}-2, +(2^{62}-2)]\)</span>, in that in both cases the domain
+contains the full range of possible indices.  The difference is
+that translating a dimension with infinite bounds has no effect,
+while translating a dimension with bounds <span class="math notranslate nohighlight">\([-(2^{62}-2,
++(2^{62}-2)]\)</span> by any non-zero offset results in an out-of-bounds
+error.</p>
+</div>
+</div>
+<div class="section" id="index-transform">
+<span id="id2"></span><h2>Index transform<a class="headerlink" href="#index-transform" title="Permalink to this headline">¶</a></h2>
+<p>An <em>index transform</em> from rank <span class="math notranslate nohighlight">\(m\)</span> to rank <span class="math notranslate nohighlight">\(n\)</span> maps every
+<span class="math notranslate nohighlight">\(m\)</span>-dimensional index vector in a rank-<span class="math notranslate nohighlight">\(m\)</span> <a class="reference internal" href="#index-domain"><span class="std std-ref">index
+domain</span></a> to an <span class="math notranslate nohighlight">\(n\)</span>-dimensional index vector in the
+output space.</p>
+<p>It is defined by its input index domain and <span class="math notranslate nohighlight">\(n\)</span> <em>output index
+maps</em>, one for each dimension <span class="math notranslate nohighlight">\(j\)</span> of the output space, each of
+one of the following three forms:</p>
+<table class="colwidths-auto docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>constant</p></td>
+<td><div class="math notranslate nohighlight">
+\[\mathrm{output}[j] = \mathrm{offset},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathrm{offset}\)</span> is an arbitrary 64-bit integer.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>single input dimension</p></td>
+<td><div class="math notranslate nohighlight">
+\[\mathrm{output}[j] = \mathrm{offset} + \mathrm{stride} \cdot \mathrm{input}[\mathrm{input\_dimension}],\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathrm{offset}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{stride}\)</span> are arbitrary 64-bit integers and
+<span class="math notranslate nohighlight">\(\mathrm{input\_dimension}\)</span> is in the range <span class="math notranslate nohighlight">\([0, m)\)</span>.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>index array</p></td>
+<td><div class="math notranslate nohighlight">
+\[\mathrm{output}[j] = \mathrm{offset} + \mathrm{stride} \cdot \mathrm{index\_array}[\mathrm{input}],\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathrm{offset}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{stride}\)</span> are
+arbitrary 64-bit integers and <span class="math notranslate nohighlight">\(\mathrm{index\_array}\)</span> is
+an <span class="math notranslate nohighlight">\(n\)</span>-dimensional array of 64-bit integers indexed by a
+subset of the dimensions of the input index domain with
+explicit lower and upper bounds, stored as a strided array in
+memory.  (The dimensions by which it is indexed are indicated
+by non-zero strides.)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>TensorStore uses this normalized index transform representation to
+represent any composition of indexing operations.  This representation
+is complete, since <em>any</em> mapping can be represented as an index array,
+but in many cases just the more efficient constant and single input
+dimension maps suffice.</p>
+<p>In most cases, two index transforms can be composed with low cost that
+is independent of the bounds specified in the domains: single input
+dimension maps may be composed with any other map without needing to
+copying any index arrays.  Only when composing two index array maps is
+it necessary to write a new index array, and in some cases this can
+result in index array with a larger representation size.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="context.html" class="btn btn-neutral float-right" title="Context framework" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Building and Installing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 The TensorStore Authors
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
